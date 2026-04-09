@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Mergington High School extracurricular activity registration and scheduling portal." />
     <title>Mergington High School Activities</title>
     <link rel="stylesheet" href="styles.css" />
     <link
@@ -12,7 +13,10 @@
     />
   </head>
   <body>
-    <header>
+      <div class="announcement-banner">
+          📢 Activity registration is open until the end of the month. Don't lose your spot!
+      </div>
+    <header role="banner">
       <h1>Mergington High School</h1>
       <h2>Extracurricular Activities</h2>
       <div id="user-controls">
@@ -29,7 +33,7 @@
       </div>
     </header>
 
-    <main>
+    <main role="main">
       <section id="activities-container">
         <div class="main-content-layout">
           <!-- Left Sidebar for Filters -->
@@ -38,7 +42,7 @@
             <!-- Search Box -->
             <div class="search-box">
               <input type="text" id="activity-search" placeholder="Search activities..." />
-              <button id="search-button" aria-label="Search">
+              <button id="search-button" type="button" aria-label="Search">
                 <span class="search-icon">🔍</span>
               </button>
             </div>
@@ -46,12 +50,12 @@
             <div class="filter-container">
               <div class="filter-label">Filter by category:</div>
               <div class="category-filters" id="category-filters">
-                <button class="category-filter active" data-category="all">All</button>
-                <button class="category-filter" data-category="sports">Sports</button>
-                <button class="category-filter" data-category="arts">Arts</button>
-                <button class="category-filter" data-category="academic">Academic</button>
-                <button class="category-filter" data-category="community">Community</button>
-                <button class="category-filter" data-category="technology">Technology</button>
+                <button type="button" class="category-filter active" data-category="all" aria-pressed="true">All</button>
+                <button type="button" class="category-filter" data-category="sports" aria-pressed="false">Sports</button>
+                <button type="button" class="category-filter" data-category="arts" aria-pressed="false">Arts</button>
+                <button type="button" class="category-filter" data-category="academic" aria-pressed="false">Academic</button>
+                <button type="button" class="category-filter" data-category="community" aria-pressed="false">Community</button>
+                <button type="button" class="category-filter" data-category="technology" aria-pressed="false">Technology</button>
               </div>
             </div>
 
@@ -59,14 +63,14 @@
             <div class="filter-container day-filter-container">
               <div class="filter-label">Filter by day:</div>
               <div class="day-filters" id="day-filters">
-                <button class="day-filter active" data-day="">All Days</button>
-                <button class="day-filter" data-day="Monday">Monday</button>
-                <button class="day-filter" data-day="Tuesday">Tuesday</button>
-                <button class="day-filter" data-day="Wednesday">Wednesday</button>
-                <button class="day-filter" data-day="Thursday">Thursday</button>
-                <button class="day-filter" data-day="Friday">Friday</button>
-                <button class="day-filter" data-day="Saturday">Saturday</button>
-                <button class="day-filter" data-day="Sunday">Sunday</button>
+                <button type="button" class="day-filter active" data-day="" aria-pressed="true">All Days</button>
+                <button type="button" class="day-filter" data-day="Monday" aria-pressed="false">Monday</button>
+                <button type="button" class="day-filter" data-day="Tuesday" aria-pressed="false">Tuesday</button>
+                <button type="button" class="day-filter" data-day="Wednesday" aria-pressed="false">Wednesday</button>
+                <button type="button" class="day-filter" data-day="Thursday" aria-pressed="false">Thursday</button>
+                <button type="button" class="day-filter" data-day="Friday" aria-pressed="false">Friday</button>
+                <button type="button" class="day-filter" data-day="Saturday" aria-pressed="false">Saturday</button>
+                <button type="button" class="day-filter" data-day="Sunday" aria-pressed="false">Sunday</button>
               </div>
             </div>
 
@@ -74,10 +78,10 @@
             <div class="filter-container time-filter-container">
               <div class="filter-label">Filter by time:</div>
               <div class="time-filters">
-                <button class="time-filter active" data-time="">All Times</button>
-                <button class="time-filter" data-time="morning">Before School</button>
-                <button class="time-filter" data-time="afternoon">After School</button>
-                <button class="time-filter" data-time="weekend">Weekend</button>
+                <button type="button" class="time-filter active" data-time="" aria-pressed="true">All Times</button>
+                <button type="button" class="time-filter" data-time="morning" aria-pressed="false">Before School</button>
+                <button type="button" class="time-filter" data-time="afternoon" aria-pressed="false">After School</button>
+                <button type="button" class="time-filter" data-time="weekend" aria-pressed="false">Weekend</button>
               </div>
             </div>
           </aside>
@@ -99,10 +103,10 @@
     </footer>
 
     <!-- Registration Modal -->
-    <div id="registration-modal" class="modal hidden">
+    <div id="registration-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="registration-title">
       <div class="modal-content">
-        <span class="close-modal">&times;</span>
-        <h3>Register for <span id="modal-activity-name"></span></h3>
+        <span class="close-modal" aria-label="Close registration modal">&times;</span>
+        <h3 id="registration-title">Register for <span id="modal-activity-name"></span></h3>
         <form id="signup-form">
           <div class="form-group">
             <label for="email">Student Email:</label>
@@ -115,10 +119,10 @@
     </div>
 
     <!-- Login Modal -->
-    <div id="login-modal" class="modal hidden">
+    <div id="login-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="login-title">
       <div class="modal-content">
-        <span class="close-login-modal">&times;</span>
-        <h3>Teacher Login</h3>
+        <span class="close-login-modal" aria-label="Close login modal">&times;</span>
+        <h3 id="login-title">Teacher Login</h3>
         <form id="login-form">
           <div class="form-group">
             <label for="username">Username:</label>
@@ -136,4 +140,6 @@
 
     <script src="app.js"></script>
   </body>
+  <!-- update for review -->
+   <!-- update for review -->
 </html>

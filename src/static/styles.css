@@ -30,6 +30,7 @@
   --error-light: #ffebee;
   --info: #0c5460;
   --info-light: #d1ecf1;
+  --announcement-background: #4caf50;
 }
 
 * {
@@ -40,14 +41,14 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
   line-height: 1.4;
   color: var(--text-primary);
   max-width: 1200px;
   margin: 0 auto;
-  padding: 12px;
+  padding: 0.75rem;
   background-color: var(--background);
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 header {
@@ -298,6 +299,14 @@ button {
   transition: background-color 0.2s;
 }
 
+button:focus-visible,
+button:focus,
+input:focus-visible,
+input:focus {
+  outline: 3px solid rgba(30, 115, 255, 0.65);
+  outline-offset: 2px;
+}
+
 /* Tooltip styles */
 .tooltip {
   position: relative;
@@ -409,6 +418,8 @@ button {
   z-index: 1000;
   opacity: 0;
   transition: opacity 0.3s ease;
+  overflow-y: auto;
+  padding: 1rem 0;
 }
 
 .modal.show {
@@ -663,4 +674,12 @@ footer {
 
 #logout-button:hover {
   background-color: rgba(255, 255, 255, 0.3);
+}
+
+.announcement-banner {
+  background-color: var(--announcement-background);
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-weight: bold;
 }
